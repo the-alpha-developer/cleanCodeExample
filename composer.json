@@ -1,0 +1,24 @@
+{
+    "name": "alpha/clean-code",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alpha\\CleanCode\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ariel D'Alessandro",
+            "email": "dalessandro.ariel@gmail.com"
+        }
+    ],
+    "require": {}
+}
