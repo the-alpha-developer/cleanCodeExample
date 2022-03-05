@@ -5,13 +5,20 @@ declare(strict_types=1);
 namespace Tests;
 
 use Alpha\CleanCode\Car;
-use PHPUnit\Framework\TestCase;
+use Alpha\CleanCode\Engine;
+use Mockery;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Mockery\MockInterface;
 
-class CarTest extends TestCase
+class CarTest extends MockeryTestCase
 {
     public function testCarStart()
     {
-        $car = new Car();
+        /** @var MockInterface|Engine $engineMock */
+        $engineMock = Mockery::mock(Engine::class);
+        $engineMock->expects()->canStart()->andReturn(true);
+
+        $car = new Car($engineMock);
 
         $this->assertTrue($car->starts());
     }

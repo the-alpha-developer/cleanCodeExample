@@ -6,18 +6,13 @@ namespace Alpha\CleanCode;
 
 class Car
 {
+    public function __construct(
+        private Engine $engine,
+    ) {
+    }
 
     public function starts(): bool
     {
-        $engine = new Engine();
-
-        if ($engine->getFuelType() == "electric") {
-            if ($engine->batteryHasCharge()) {
-                return true;
-            }
-            return false;
-        }
-
-        return true;
+        return $this->engine->canStart();
     }
 }
